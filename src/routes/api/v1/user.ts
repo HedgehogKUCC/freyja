@@ -128,6 +128,12 @@ router.post(
                 "status": true,
             }
         }
+    * #swagger.responses[400] = {
+            schema: {
+                "status": false,
+                "message": "請至 Email 確認驗證碼",
+            }
+        }
      * #swagger.responses[404] = {
             schema: {
                 "status": false,
