@@ -80,6 +80,8 @@ export const forget: RequestHandler = async (req, res, next) => {
                     new: true
                 }
             );
+        } else {
+            throw createHttpError(400, '請至 Email 確認驗證碼');
         }
 
         res.send({
