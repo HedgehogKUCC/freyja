@@ -48,16 +48,10 @@ router.post(
                 "status": true,
             }
         }
-    * #swagger.responses[400] = {
-            schema: {
-                "status": false,
-                "message": "發送失敗，請確認電子信箱"
-            }
-        }
      * #swagger.responses[400] = {
             schema: {
                 "status": false,
-                "message": "Email 格式不正確",
+                "message": "Email 格式不正確 | 發送失敗，請確認電子信箱",
             }
         }
      */
