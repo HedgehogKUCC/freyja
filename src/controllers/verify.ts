@@ -1,4 +1,5 @@
 import type { RequestHandler } from 'express';
+import createHttpError from 'http-errors';
 import validator from 'validator';
 import nodemailer from 'nodemailer';
 import UsersModel from '@/models/user';
@@ -51,6 +52,8 @@ export const sendVerificationCode: RequestHandler = async (req, res, next) => {
                 subject: 'Node 驗證碼',
                 html: `<p>使用 ${code} 做為 Node 帳戶密碼安全性驗證碼</p>`
             });
+        } else {
+            throw createHttpError(400, '發送失敗，請確認電子信箱');
         }
 
         res.send({
