@@ -26,7 +26,7 @@ export const isAuth: RequestHandler = async (req, _res, next) => {
             throw createHttpError(404, '此使用者不存在');
         }
 
-        req.user ??= user;
+        req.user ??= user.toObject();
 
         next();
     } catch (error) {
